@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    fx:controller="de.ebuchner.vocab.fx.practice.PracticeWindow"
+-->
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<BorderPane
+    xmlns:fx="http://javafx.com/fxml"
+    >
+    <top>
+        <MenuBar>
+            <Menu fx:id="menuFile"
+                  text="%nui.menu.file"
+                >
+                <SeparatorMenuItem/>
+                <MenuItem text="%nui.menu.file.exit"
+                          onAction="#onFileExit"
+                    >
+                    <graphic>
+                        <ImageView>
+                            <Image url="@/de/ebuchner/vocab/nui/res/exit.png"/>
+                        </ImageView>
+                    </graphic>
+                </MenuItem>
+            </Menu>
+            <Menu fx:id="menuEdit"
+                  text="%nui.practice.menu.edit"
+                >
+                <Menu text="%nui.practice.navigation">
+                    <MenuItem fx:id="miNavigationReset"
+                              text="%nui.practice.navigation.reset.text"
+                              onAction="#onNavigationReset"
+                        >
+                        <graphic>
+                            <ImageView>
+                                <Image url="@/de/ebuchner/vocab/nui/res/strategy_reset.png"/>
+                            </ImageView>
+                        </graphic>
+                    </MenuItem>
+                    <MenuItem fx:id="miNavigationBackward"
+                              text="%nui.practice.navigation.backward.text"
+                              onAction="#onNavigationBackward"
+                        >
+                        <graphic>
+                            <ImageView>
+                                <Image url="@/de/ebuchner/vocab/nui/res/strategy_previous.png"/>
+                            </ImageView>
+                        </graphic>
+                    </MenuItem>
+                    <MenuItem fx:id="miNavigationForward"
+                              text="%nui.practice.navigation.forward.text"
+                              onAction="#onNavigationForward"
+                        >
+                        <graphic>
+                            <ImageView>
+                                <Image url="@/de/ebuchner/vocab/nui/res/strategy_next.png"/>
+                            </ImageView>
+                        </graphic>
+                    </MenuItem>
+                    <MenuItem fx:id="miReshuffle"
+                              text="(automatic)"
+                              onAction="#onNavigationReshuffle"
+                        >
+                    </MenuItem>
+                </Menu>
+                <Menu
+                    text="%nui.practice.repetition">
+                    <MenuItem fx:id="miRepetitionAdd"
+                              text="%nui.practice.repetition.add"
+                              onAction="#onRepetitionAdd"
+                        >
+                    </MenuItem>
+                    <MenuItem fx:id="miRepetitionRemove"
+                              text="%nui.practice.repetition.remove"
+                              onAction="#onRepetitionRemove"
+                        >
+                    </MenuItem>
+                    <MenuItem fx:id="miRepetitionClear"
+                              text="%nui.practice.repetition.clear"
+                              onAction="#onRepetitionClear"
+                        />
+                </Menu>
+            </Menu>
+            <Menu fx:id="menuSearch"
+                  text="%nui.menu.search"
+                />
+            <Menu fx:id="menuText"
+                  text="%nui.menu.text"
+                />
+            <Menu fx:id="menuTools"
+                  text="%nui.menu.tools"
+                />
+            <Menu fx:id="menuOptions"
+                  text="%nui.menu.options"
+                >
+                <CheckMenuItem fx:id="miShowStatistics"
+                               text="%nui.menu.options.show.statistics"
+                               onAction="#onOptionsShowStatistics"
+                    />
+                <CheckMenuItem fx:id="miItemReverse"
+                               text="%nui.practice.reverse"
+                               onAction="#onOptionsItemReverse"
+                    />
+                <Menu text="%nui.practice.strategy">
+                    <fx:define>
+                        <ToggleGroup fx:id="strategyButtons"/>
+                    </fx:define>
+                    <RadioMenuItem fx:id="miStrategyRandom"
+                                   text="%nui.practice.strategy.random"
+                                   onAction="#onStrategyChanged"
+                                   toggleGroup="$strategyButtons"
+                        />
+                    <RadioMenuItem fx:id="miStrategyIntense"
+                                   text="%nui.practice.strategy.intense"
+                                   onAction="#onStrategyChanged"
+                                   toggleGroup="$strategyButtons"
+                        />
+                    <RadioMenuItem fx:id="miStrategyBrowse"
+                                   text="%nui.practice.strategy.browse"
+                                   onAction="#onStrategyChanged"
+                                   toggleGroup="$strategyButtons"
+                        />
+                    <RadioMenuItem fx:id="miStrategyFrequency"
+                                   text="%nui.practice.strategy.frequency"
+                                   onAction="#onStrategyChanged"
+                                   toggleGroup="$strategyButtons"
+                        />
+                    <RadioMenuItem fx:id="miStrategyAge"
+                                   text="%nui.practice.strategy.age"
+                                   onAction="#onStrategyChanged"
+                                   toggleGroup="$strategyButtons"
+                        />
+                </Menu>
+            </Menu>
+            <Menu fx:id="menuHelp"
+                  text="%nui.menu.help"
+                />
+        </MenuBar>
+    </top>
+    <center>
+        <BorderPane>
+            <top>
+                <ToolBar fx:id="toolBar"/>
+            </top>
+            <center>
+                <GridPane
+                    alignment="center" hgap="3" vgap="3"
+                    >
+                    <padding>
+                        <Insets top="3" right="3" bottom="3" left="3"/>
+                    </padding>
+
+                    <!-- Lesson -->
+                    <Label fx:id="lbLesson"
+                           GridPane.columnIndex="0" GridPane.rowIndex="0"
+                           text="%nui.practice.lesson"
+                        />
+
+                    <TextField fx:id="tfLesson"
+                               editable="false"
+                               prefColumnCount="40"
+                               GridPane.columnIndex="1" GridPane.rowIndex="0"
+                        />
+
+                    <CheckBox fx:id="cbLessonShowOption"
+                              GridPane.columnIndex="2" GridPane.rowIndex="0"
+                              text="%nui.practice.lesson.show"
+                              onAction="#onLessonShowOptionChanged"
+                        />
+
+                    <!-- Foreign -->
+                    <Label fx:id="lbForeign"
+                           GridPane.columnIndex="0" GridPane.rowIndex="1"
+                        />
+
+                    <TextField fx:id="tfForeign"
+                               editable="false"
+                               prefColumnCount="40"
+                               styleClass="modifiableFont"
+                               GridPane.columnIndex="1" GridPane.rowIndex="1"
+                        />
+
+                    <Button fx:id="btnEditEntry"
+                            text="%nui.practice.edit.entry"
+                            GridPane.columnIndex="2" GridPane.rowIndex="1"
+                            onAction="#onEditEntry"
+                        >
+                        <graphic>
+                            <ImageView>
+                                <Image url="@/de/ebuchner/vocab/nui/res/edit.png"/>
+                            </ImageView>
+                        </graphic>
+                        <tooltip>
+                            <Tooltip text="%nui.practice.edit.entry.tooltip"/>
+                        </tooltip>
+                    </Button>
+
+                    <!-- Type -->
+                    <Label fx:id="lbType"
+                           GridPane.columnIndex="0" GridPane.rowIndex="2"
+                        />
+
+                    <TextField fx:id="tfType"
+                               editable="false"
+                               prefColumnCount="40"
+                               styleClass="modifiableFont"
+                               GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.columnSpan="2"
+                        />
+
+                    <!-- User -->
+                    <Label fx:id="lbUser"
+                           GridPane.columnIndex="0" GridPane.rowIndex="3"
+                        />
+
+                    <TextField fx:id="tfUser"
+                               editable="false"
+                               prefColumnCount="40"
+                               styleClass="modifiableFont"
+                               GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="2"
+                        />
+
+                    <!-- Comment -->
+                    <Label fx:id="lbComment"
+                           GridPane.columnIndex="0" GridPane.rowIndex="4"
+                           GridPane.valignment="TOP"
+                        />
+
+                    <TextArea fx:id="tfComment"
+                              editable="false"
+                              prefColumnCount="40"
+                              prefRowCount="3"
+                              wrapText="true"
+                              styleClass="modifiableFont"
+                              GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.columnSpan="2"
+                        />
+
+                    <Text
+                        GridPane.columnIndex="0" GridPane.rowIndex="5"
+                        text="%nui.practice.navigation"
+                        />
+                    <HBox spacing="3"
+                          alignment="BASELINE_LEFT"
+                          GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.columnSpan="2"
+                        >
+                        <Button fx:id="btnNavigationReset"
+                                text="%nui.practice.navigation.reset.text"
+                                onAction="#onNavigationReset"
+                            >
+                            <graphic>
+                                <ImageView>
+                                    <Image url="@/de/ebuchner/vocab/nui/res/strategy_reset.png"/>
+                                </ImageView>
+                            </graphic>
+                            <tooltip>
+                                <Tooltip text="%nui.practice.navigation.reset.tooltip"/>
+                            </tooltip>
+                        </Button>
+                        <Button fx:id="btnNavigationBackward"
+                                text="%nui.practice.navigation.backward.text"
+                                onAction="#onNavigationBackward"
+                            >
+                            <graphic>
+                                <ImageView>
+                                    <Image url="@/de/ebuchner/vocab/nui/res/strategy_previous.png"/>
+                                </ImageView>
+                            </graphic>
+                            <tooltip>
+                                <Tooltip text="%nui.practice.navigation.backward.tooltip"/>
+                            </tooltip>
+                        </Button>
+                        <Button fx:id="btnNavigationForward"
+                                text="%nui.practice.navigation.forward.text"
+                                onAction="#onNavigationForward"
+                            >
+                            <graphic>
+                                <ImageView>
+                                    <Image url="@/de/ebuchner/vocab/nui/res/strategy_next.png"/>
+                                </ImageView>
+                            </graphic>
+                            <tooltip>
+                                <Tooltip text="%nui.practice.navigation.forward.tooltip"/>
+                            </tooltip>
+                        </Button>
+                        <Button fx:id="btnReshuffle"
+                                text="(automatic)"
+                                onAction="#onNavigationReshuffle"
+                            >
+                            <graphic>
+                                <ImageView>
+                                    <Image url="@/de/ebuchner/vocab/nui/res/strategy_skip.png"/>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+
+                        <Label fx:id="lbStrategy"
+                               text=""
+                            />
+                    </HBox>
+
+                    <Text
+                        GridPane.columnIndex="0" GridPane.rowIndex="6"
+                        text="%nui.practice.repetition"
+                        />
+                    <HBox spacing="3"
+                          alignment="BASELINE_LEFT"
+                          GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.columnSpan="2"
+                        >
+                        <CheckBox fx:id="cbRepetitionMode"
+                                  text="%nui.practice.repetition.activate"
+                                  onAction="#onRepetitionActivated"
+                            />
+                        <Button fx:id="btnRepetitionAdd"
+                                text="%nui.practice.repetition.add"
+                                onAction="#onRepetitionAdd"
+                            >
+                            <tooltip>
+                                <Tooltip text="%nui.practice.repetition.add.tooltip"/>
+                            </tooltip>
+                        </Button>
+                        <Button fx:id="btnRepetitionRemove"
+                                text="%nui.practice.repetition.remove"
+                                onAction="#onRepetitionRemove"
+                            >
+                            <tooltip>
+                                <Tooltip text="%nui.practice.repetition.remove.tooltip"/>
+                            </tooltip>
+                        </Button>
+                        <Button fx:id="btnRepetitionClear"
+                                text="%nui.practice.repetition.clear"
+                                onAction="#onRepetitionClear"
+                            />
+                        <Button fx:id="btnRepetitionLoad"
+                                text="%nui.practice.repetition.load"
+                                onAction="#onRepetitionLoad"
+                            />
+                    </HBox>
+                </GridPane>
+            </center>
+            <bottom>
+                <ToolBar>
+                    <items>
+                        <GridPane hgap="3">
+                            <ProgressBar fx:id="pbVocab"
+                                         GridPane.columnIndex="0" GridPane.rowIndex="0"
+                                />
+                            <Label fx:id="statusBar"
+                                   text="%nui.status.default"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="0"
+                                />
+                        </GridPane>
+                    </items>
+                </ToolBar>
+            </bottom>
+        </BorderPane>
+    </center>
+</BorderPane>

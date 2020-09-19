@@ -1,0 +1,8 @@
+.alphabet-error {
+    -fx-text-fill: #ff0000;
+}
+
+/* elements with this style class will change font dynamically */
+.modifiableFont {
+
+}

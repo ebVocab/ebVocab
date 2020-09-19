@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+fx:controller="de.ebuchner.vocab.fx.search.SearchWindow"
+-->
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane
+    xmlns:fx="http://javafx.com/fxml"
+    >
+    <center>
+        <GridPane
+            alignment="center" hgap="3" vgap="3"
+            >
+            <padding>
+                <Insets top="3" right="3" bottom="3" left="3"/>
+            </padding>
+
+            <FlowPane
+                GridPane.columnIndex="0" GridPane.rowIndex="0"
+                alignment="BASELINE_LEFT"
+                hgap="3" vgap="3"
+                >
+                <Label
+                    text="%nui.search.text.to.find"
+                    />
+                <TextField
+                    fx:id="tfSearchString"
+                    prefColumnCount="30"
+                    styleClass="modifiableFont"
+                    />
+
+                <Button
+                    fx:id="btnSearch"
+                    text="%nui.search.button"
+                    onAction="#onSearch"
+                    defaultButton="true"
+                    />
+            </FlowPane>
+            <FlowPane
+                GridPane.columnIndex="0" GridPane.rowIndex="1"
+                alignment="BASELINE_LEFT"
+                hgap="3" vgap="3"
+                >
+                <CheckBox fx:id="cbCaseSensitive"
+                          text="%nui.search.option.case.sensitive"
+                    />
+                <CheckBox fx:id="cbWholeWords"
+                          text="%nui.search.option.whole.words"
+                    />
+                <CheckBox fx:id="cbRegularExpression"
+                          text="%nui.search.option.regular.expressions"
+                    />
+                <CheckBox fx:id="cbSearchInComments"
+                          text="%nui.search.option.comments"
+                    />
+            </FlowPane>
+            <Label text="%nui.search.result"
+                   GridPane.columnIndex="0" GridPane.rowIndex="2"
+                />
+            <TableView fx:id="resultTable"
+                       GridPane.columnIndex="0" GridPane.rowIndex="2"
+                >
+                <columns>
+                    <TableColumn fx:id="tcForeign"
+                                 minWidth="250"
+                        />
+                    <TableColumn fx:id="tcUser"
+                                 minWidth="250"
+                        />
+                    <TableColumn fx:id="tcFileName"
+                                 text="%nui.practice.lesson"
+                                 minWidth="100"
+                        />
+                </columns>
+            </TableView>
+            <FlowPane
+                GridPane.columnIndex="0" GridPane.rowIndex="3"
+                alignment="BASELINE_RIGHT"
+                hgap="3" vgap="3"
+                >
+                <Button fx:id="btnResultEdit"
+                        text="%nui.search.edit.result"
+                        disable="true"
+                        onAction="#onResultEdit"
+                    />
+                <Button text="%nui.close"
+                        onAction="#onClose"
+                    />
+            </FlowPane>
+        </GridPane>
+    </center>
+    <bottom>
+        <FlowPane
+            alignment="BASELINE_LEFT"
+            hgap="3" vgap="3"
+            >
+            <ProgressBar fx:id="pbSearch"
+                         progress="0"
+                />
+            <Label fx:id="lbCount"
+                   text="%nui.status.default"
+                />
+        </FlowPane>
+    </bottom>
+</BorderPane>

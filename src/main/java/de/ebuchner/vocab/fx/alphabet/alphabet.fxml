@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+fx:controller="de.ebuchner.vocab.fx.alphabet.AlphabetWindow"
+-->
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<GridPane
+    xmlns:fx="http://javafx.com/fxml"
+    alignment="center" hgap="3" vgap="3"
+    >
+    <padding>
+        <Insets top="5" right="5" bottom="5" left="5"/>
+    </padding>
+
+    <Label
+        text="%nui.alphabet.random"
+        GridPane.columnIndex="0" GridPane.rowIndex="0"
+        />
+
+    <GridPane
+        fx:id="randomGrid"
+        GridPane.columnIndex="0" GridPane.rowIndex="1"
+        alignment="center" hgap="3" vgap="3"
+        >
+        <padding>
+            <Insets top="5" right="5" bottom="5" left="5"/>
+        </padding>
+    </GridPane>
+
+    <Label
+        text="%nui.alphabet.solution"
+        GridPane.columnIndex="0" GridPane.rowIndex="2"
+        />
+
+    <GridPane
+        fx:id="solutionGrid"
+        GridPane.columnIndex="0" GridPane.rowIndex="3"
+        alignment="center" hgap="3" vgap="3"
+        >
+        <padding>
+            <Insets top="5" right="5" bottom="5" left="5"/>
+        </padding>
+    </GridPane>
+    <FlowPane
+        alignment="BASELINE_RIGHT"
+        hgap="3" vgap="3"
+        GridPane.columnIndex="0" GridPane.rowIndex="4"
+        >
+        <Button fx:id="btnNext"
+                onAction="#onNext"
+                text="%nui.alphabet.next"
+            />
+        <Button fx:id="btnAll"
+                onAction="#onAll"
+                text="%nui.alphabet.all"
+            />
+        <Button fx:id="btnReset"
+                onAction="#onReset"
+                text="%nui.alphabet.reset"
+            />
+        <Button fx:id="btnClose"
+                onAction="#onClose"
+                text="%nui.alphabet.close"
+            />
+    </FlowPane>
+
+</GridPane>

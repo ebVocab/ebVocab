@@ -1,0 +1,16 @@
+.practice-type-masculine {
+    -fx-background-color: #add8e6;
+}
+
+.practice-type-feminine {
+    -fx-background-color: #ffc0cb;
+}
+
+/* elements with this style class will change font dynamically */
+.modifiableFont {
+
+}
+
+.root {
+    -fx-font-family: "Arial";
+}

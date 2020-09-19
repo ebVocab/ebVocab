@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'de.ebuchner.ebvocab'
+version '1.2.8'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://cloud.twometer.de/nexus/repository/maven-releases' }
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    compile 'de.ebuchner.vocab:ebVocabCore:1.2.8'
+    compile 'com.google.cloud:google-cloud-translate:1.95.2'
+    compile 'org.openjfx:javafx-controls:14'
+    compile 'org.openjfx:javafx-fxml:14'
+    compile 'org.openjfx:javafx-swing:14'
+    compile 'org.apache.httpcomponents:httpclient:4.5.12'
+    compile 'org.apache.httpcomponents:httpmime:4.5.12'
+    testCompile 'junit:junit:4.12'
+    testCompile 'jdepend:jdepend:2.9.1'
+}

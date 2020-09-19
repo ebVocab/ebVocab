@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+fx:controller="de.ebuchner.vocab.fx.transliteration.TransliterationWindow"
+-->
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane
+    xmlns:fx="http://javafx.com/fxml"
+    >
+    <center>
+        <GridPane
+            fx:id="gridPane"
+            alignment="center" hgap="3" vgap="3"
+            >
+            <padding>
+                <Insets top="3" right="3" bottom="3" left="3"/>
+            </padding>
+        </GridPane>
+    </center>
+    <right>
+        <VBox alignment="BASELINE_CENTER" spacing="3">
+            <padding>
+                <Insets top="3" right="3" bottom="3" left="3"/>
+            </padding>
+            <ToggleButton
+                fx:id="tbOnTop"
+                onAction="#onTopChanged"
+                >
+                <graphic>
+                    <ImageView>
+                        <Image url="@/de/ebuchner/vocab/nui/res/pin.png"/>
+                    </ImageView>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="%nui.window.on.top"/>
+                </tooltip>
+            </ToggleButton>
+        </VBox>
+    </right>
+</BorderPane>

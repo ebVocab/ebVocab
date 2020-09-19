@@ -1,0 +1,8 @@
+.project-groupBox {
+    -fx-border-style: solid;
+}
+
+/* elements with this style class will change font dynamically */
+.modifiableFont {
+
+}

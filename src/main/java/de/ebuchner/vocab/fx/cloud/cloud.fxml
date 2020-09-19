@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    fx:controller="de.ebuchner.vocab.fx.cloud.CloudWindow"
+-->
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<GridPane
+    xmlns:fx="http://javafx.com/fxml"
+    alignment="center" hgap="3" vgap="3"
+    >
+    <padding>
+        <Insets top="3" right="3" bottom="3" left="3"/>
+    </padding>
+
+    <Label
+        text="%nui.cloud.server"
+        GridPane.columnIndex="0" GridPane.rowIndex="0"
+        />
+
+    <TextField
+        fx:id="tfServer"
+        prefColumnCount="20"
+        GridPane.columnIndex="1" GridPane.rowIndex="0"
+        />
+
+    <Label text="%nui.cloud.user"
+           GridPane.columnIndex="0" GridPane.rowIndex="1"
+        />
+
+    <TextField
+        fx:id="tfUser"
+        prefColumnCount="20"
+        GridPane.columnIndex="1" GridPane.rowIndex="1"
+        />
+
+    <Label text="%nui.cloud.secret"
+           GridPane.columnIndex="0" GridPane.rowIndex="2"
+        />
+
+    <PasswordField
+        fx:id="tfSecret"
+        prefColumnCount="20"
+        GridPane.columnIndex="1" GridPane.rowIndex="2"
+        />
+
+    <TableView fx:id="tableDiffer"
+               GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2"
+        >
+        <columns>
+            <TableColumn fx:id="tcAction"
+                         text="%nui.cloud.table.action"
+                         minWidth="300"
+                />
+            <TableColumn fx:id="tcPath"
+                         text="%nui.cloud.table.path"
+                         minWidth="200"
+                />
+            <TableColumn fx:id="tcFile"
+                         text="%nui.cloud.table.file"
+                         minWidth="300"
+                />
+        </columns>
+    </TableView>
+
+    <FlowPane
+        alignment="BASELINE_LEFT"
+        hgap="3" vgap="3"
+        GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2"
+        >
+        <fx:define>
+            <ToggleGroup fx:id="switchDirection"/>
+        </fx:define>
+        <RadioButton
+            fx:id="rbUpload"
+            text="%nui.cloud.direction.upload"
+            onAction="#onSwitchDirection"
+            toggleGroup="$switchDirection"
+            />
+        <RadioButton
+            fx:id="rbDownload"
+            text="%nui.cloud.direction.download"
+            onAction="#onSwitchDirection"
+            toggleGroup="$switchDirection"
+            />
+    </FlowPane>
+
+    <FlowPane
+        alignment="BASELINE_RIGHT"
+        hgap="3" vgap="3"
+        GridPane.columnIndex="0" GridPane.rowIndex="5" GridPane.columnSpan="2"
+        >
+        <Button
+            fx:id="btnRefresh"
+            text="%nui.refresh"
+            onAction="#onRefresh"
+            >
+            <graphic>
+                <ImageView>
+                    <Image url="@/de/ebuchner/vocab/nui/res/reload.png"/>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button
+            fx:id="btnTransferSelected"
+            disable="true"
+            text="%nui.cloud.transfer.selected"
+            onAction="#onTransferSelected"
+            />
+        <Button
+            fx:id="btnTransferAll"
+            disable="true"
+            text="%nui.cloud.transfer.all"
+            onAction="#onTransferAll"
+            />
+    </FlowPane>
+
+    <FlowPane
+        alignment="BASELINE_LEFT"
+        hgap="3" vgap="3"
+        GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="2"
+        >
+        <ProgressBar fx:id="pbStatus"
+            />
+        <Label fx:id="lbStatus"
+            />
+    </FlowPane>
+</GridPane>

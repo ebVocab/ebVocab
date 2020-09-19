@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+fx:controller="de.ebuchner.vocab.fx.keyboard.KeyboardWindow"
+-->
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane
+    xmlns:fx="http://javafx.com/fxml"
+    >
+    <center>
+        <Canvas
+            fx:id="cvKeyboard"
+            styleClass="canvas-keyboard"
+            />
+    </center>
+    <right>
+        <VBox alignment="BASELINE_CENTER" spacing="3">
+            <padding>
+                <Insets top="3" right="3" bottom="3" left="3"/>
+            </padding>
+            <Label
+                fx:id="lbKeyboardActive"
+                >
+                <graphic>
+                    <ImageView>
+                        <Image url="@/de/ebuchner/vocab/nui/res/keyboard_inactive.png"/>
+                    </ImageView>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="%nui.keyboard.active.tooltip"/>
+                </tooltip>
+            </Label>
+            <ToggleButton
+                fx:id="tbOnTop"
+                onAction="#onTopChanged"
+                >
+                <graphic>
+                    <ImageView>
+                        <Image url="@/de/ebuchner/vocab/nui/res/pin.png"/>
+                    </ImageView>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="%nui.window.on.top"/>
+                </tooltip>
+            </ToggleButton>
+        </VBox>
+    </right>
+    <bottom>
+        <FlowPane
+            visible="false"
+            hgap="3" vgap="3"
+            alignment="CENTER"
+            >
+            <padding>
+                <Insets top="3" right="3" bottom="3" left="3"/>
+            </padding>
+        </FlowPane>
+    </bottom>
+</BorderPane>

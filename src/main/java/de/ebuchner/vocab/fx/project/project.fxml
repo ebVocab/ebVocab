@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+fx:controller="de.ebuchner.vocab.fx.project.ProjectWindow"
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<GridPane
+    xmlns:fx="http://javafx.com/fxml"
+    hgap="3" vgap="3"
+    >
+    <padding>
+        <Insets top="3" right="3" bottom="3" left="3"/>
+    </padding>
+
+    <Label text="%nui.project.hint.new"
+           styleClass="label-title"
+           GridPane.columnIndex="0" GridPane.rowIndex="0"
+        />
+    <FlowPane alignment="BASELINE_RIGHT"
+              hgap="3" vgap="3"
+              GridPane.columnIndex="1" GridPane.rowIndex="0"
+        >
+        <Hyperlink
+            text="%nui.project.hint.project"
+            onAction="#onShowHint"
+            />
+    </FlowPane>
+    <GridPane
+        styleClass="project-groupBox"
+        hgap="3" vgap="3"
+        GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="2"
+        >
+        <padding>
+            <Insets top="3" right="3" bottom="3" left="3"/>
+        </padding>
+
+        <Label GridPane.columnIndex="0" GridPane.rowIndex="0"
+               text="%nui.project.supported.language"
+            />
+
+        <ComboBox fx:id="cbSelectedLanguage"
+                  editable="false"
+                  GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="2"
+            />
+
+        <Label GridPane.columnIndex="0" GridPane.rowIndex="1"
+               text="%nui.project.dir"
+            />
+
+        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"
+                   fx:id="tfProjectDir"
+                   prefColumnCount="40"/>
+
+        <Button GridPane.columnIndex="2" GridPane.rowIndex="1"
+                text="%nui.project.dir.select"
+                onAction="#onChooseTargetLocation"
+            />
+
+        <Button GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="3"
+                text="%nui.project.create"
+                onAction="#onNewProject"
+            />
+    </GridPane>
+
+    <Label text="%nui.project.hint.existing"
+           styleClass="label-title"
+           GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="2"
+        />
+
+    <GridPane
+        hgap="3" vgap="3"
+        styleClass="project-groupBox"
+        GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2"
+        >
+        <padding>
+            <Insets top="3" right="3" bottom="3" left="3"/>
+        </padding>
+
+        <Label text="%nui.project.recent"
+               GridPane.columnIndex="0" GridPane.rowIndex="0"
+            />
+
+        <ComboBox fx:id="cbRecent"
+                  editable="false"
+                  GridPane.columnIndex="1" GridPane.rowIndex="0"
+            />
+
+        <Button text="%nui.project.use"
+                onAction="#onProjectUse"
+                fx:id="btnProjectUse"
+                GridPane.columnIndex="2" GridPane.rowIndex="0"
+            />
+        <Button text="%nui.project.select.existing"
+                onAction="#onProjectSelectExisting"
+                GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="3"
+            />
+    </GridPane>
+
+    <Label text="%nui.project.checkout"
+           styleClass="label-title"
+           GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2"
+        />
+
+    <GridPane
+        hgap="3" vgap="3"
+        styleClass="project-groupBox"
+        GridPane.columnIndex="0" GridPane.rowIndex="5" GridPane.columnSpan="2"
+        >
+        <padding>
+            <Insets top="3" right="3" bottom="3" left="3"/>
+        </padding>
+
+        <Label text="%nui.project.checkout.label"
+               GridPane.columnIndex="0" GridPane.rowIndex="0"
+            />
+
+        <HBox
+            GridPane.columnIndex="1" GridPane.rowIndex="0"
+            spacing="3"
+            >
+
+            <ComboBox fx:id="cbCheckoutProjects"
+                      editable="false"
+                />
+
+            <Button
+                onAction="#onCheckoutRefresh"
+                fx:id="btnCheckoutRefresh"
+                >
+                <graphic>
+                    <ImageView>
+                        <Image url="@/de/ebuchner/vocab/nui/res/reload.png"/>
+                    </ImageView>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="%nui.project.checkout.refresh"/>
+                </tooltip>
+            </Button>
+        </HBox>
+
+        <Label GridPane.columnIndex="0" GridPane.rowIndex="1"
+               text="%nui.project.dir"
+            />
+
+        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"
+                   GridPane.fillWidth="true" GridPane.hgrow="ALWAYS"
+                   fx:id="tfCheckoutDir"
+                   prefColumnCount="40"/>
+
+        <Button GridPane.columnIndex="2" GridPane.rowIndex="1"
+                text="%nui.project.dir.select"
+                onAction="#onCheckoutDirLocation"
+            />
+
+        <Button text="%nui.project.checkout.button"
+                onAction="#onCheckout"
+                GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="3"
+            />
+    </GridPane>
+
+    <ProgressBar fx:id="pbProject"
+                 GridPane.columnIndex="0" GridPane.rowIndex="6"
+        />
+
+    <FlowPane
+        GridPane.columnIndex="1" GridPane.rowIndex="6"
+        hgap="3" vgap="3"
+        alignment="BASELINE_RIGHT">
+        <Button text="%nui.close"
+                onAction="#onClose"
+            />
+    </FlowPane>
+</GridPane>

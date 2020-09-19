@@ -1,0 +1,9 @@
+
+.project-groupBox {
+    -fx-border-style: solid;
+}
+
+.label-title {
+    -fx-font-weight: bold;
+    -fx-font-size: 1.5em;
+}

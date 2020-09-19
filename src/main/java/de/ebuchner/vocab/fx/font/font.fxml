@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+fx:controller="de.ebuchner.vocab.fx.font.FontSelectionWindow"
+-->
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<GridPane
+    xmlns:fx="http://javafx.com/fxml"
+    alignment="center" hgap="3" vgap="3"
+    >
+    <padding>
+        <Insets top="3" right="3" bottom="3" left="3"/>
+    </padding>
+
+    <ComboBox fx:id="cmbFonts"
+              editable="false"
+              GridPane.columnIndex="0" GridPane.rowIndex="0"
+              onAction="#onFontSelectionUpdated"
+        />
+
+    <ComboBox fx:id="cmbFontSizes"
+              editable="false"
+              GridPane.columnIndex="1" GridPane.rowIndex="0"
+              onAction="#onFontSelectionUpdated"
+        />
+
+    <ToggleButton fx:id="btnBold"
+                  text="%nui.font.selection.bold"
+                  style="-fx-font-weight: bold;"
+                  GridPane.columnIndex="2" GridPane.rowIndex="0"
+                  onAction="#onFontSelectionUpdated"
+        />
+
+    <ToggleButton fx:id="btnItalic"
+                  text="%nui.font.selection.italic"
+                  style="-fx-font-style: italic;"
+                  GridPane.columnIndex="3" GridPane.rowIndex="0"
+                  onAction="#onFontSelectionUpdated"
+        />
+
+    <TextField fx:id="tfTest"
+               GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="4"
+        />
+
+    <FlowPane
+        GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="4"
+        hgap="3" vgap="3"
+        alignment="BASELINE_RIGHT"
+        >
+        <Button
+            text="%nui.font.selection.reset"
+            onAction="#onFontReset"
+            />
+        <Button
+            text="%nui.ok"
+            onAction="#onOk"
+            />
+        <Button
+            text="%nui.cancel"
+            onAction="#onCancel"
+            />
+    </FlowPane>
+
+</GridPane>

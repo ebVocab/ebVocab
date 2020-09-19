@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+fx:controller="de.ebuchner.vocab.fx.analysis.AnalysisWindow"
+-->
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<GridPane
+    xmlns:fx="http://javafx.com/fxml"
+    alignment="center" hgap="3" vgap="3"
+    >
+    <padding>
+        <Insets top="3" right="3" bottom="3" left="3"/>
+    </padding>
+
+    <Label
+        GridPane.columnIndex="0" GridPane.rowIndex="0"
+        alignment="BASELINE_LEFT"
+        text="%nui.analysis.input"
+        />
+
+    <TextField fx:id="tfInput"
+               alignment="BASELINE_LEFT"
+               GridPane.columnIndex="1" GridPane.rowIndex="0"
+               prefColumnCount="30"
+        />
+
+    <Button
+        GridPane.columnIndex="2" GridPane.rowIndex="0"
+        text="%nui.analysis.convert"
+        onAction="#onConvert"
+        />
+
+    <Label
+        GridPane.columnIndex="0" GridPane.rowIndex="1"
+        alignment="BASELINE_LEFT"
+        text="%nui.analysis.output"
+        />
+
+    <TextField fx:id="tfResult"
+               alignment="BASELINE_LEFT"
+               editable="false"
+               GridPane.columnIndex="1" GridPane.rowIndex="1"
+               prefColumnCount="30"
+        />
+
+    <Label
+        GridPane.columnIndex="0" GridPane.rowIndex="2"
+        alignment="BASELINE_LEFT"
+        text="%nui.analysis.unicode"
+        />
+
+    <TextField fx:id="tfUnicode"
+               editable="false"
+               alignment="BASELINE_LEFT"
+               GridPane.columnIndex="1" GridPane.rowIndex="2"
+               prefColumnCount="30"
+        />
+
+    <FlowPane
+        GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="3"
+        hgap="3" vgap="3"
+        alignment="BASELINE_RIGHT"
+        >
+        <Button
+            text="%nui.close"
+            onAction="#onClose"
+            />
+    </FlowPane>
+</GridPane>

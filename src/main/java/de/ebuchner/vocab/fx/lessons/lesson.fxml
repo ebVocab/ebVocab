@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+fx:controller="de.ebuchner.vocab.fx.lessons.LessonWindow"
+-->
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<GridPane
+    xmlns:fx="http://javafx.com/fxml"
+    alignment="center" hgap="3" vgap="3"
+>
+    <padding>
+        <Insets top="3" right="3" bottom="3" left="3"/>
+    </padding>
+
+    <Label text="%nui.lesson.tree.header"
+           GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2"
+    />
+
+    <TreeView fx:id="lessonTree"
+              editable="true"
+              GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="2"
+    />
+
+    <Label text="%nui.lesson.select"
+           GridPane.columnIndex="0" GridPane.rowIndex="2"
+    />
+    <HBox spacing="3"
+          GridPane.columnIndex="1" GridPane.rowIndex="2"
+    >
+        <Button fx:id="btnSelectAll"
+                text="%nui.lesson.select.all.files"
+                onAction="#onSelectAll"
+        />
+        <Button fx:id="btnSelectNone"
+                text="%nui.lesson.select.no.files"
+                onAction="#onSelectNone"
+        />
+        <Button fx:id="btnExpandAll"
+                text="%nui.lesson.tree.expand.all"
+                onAction="#onExpandAll"
+        />
+        <Button fx:id="btnCollapseAll"
+                text="%nui.lesson.tree.collapse.all"
+                onAction="#onCollapseAll"
+        />
+        <Button fx:id="btnFilter"
+                text="%nui.lesson.tree.filter"
+                onAction="#onFilter"
+        />
+    </HBox>
+
+    <Label text="%nui.lesson.tree.root"
+           GridPane.columnIndex="0" GridPane.rowIndex="3"
+    />
+
+    <Label fx:id="lbRoot"
+           GridPane.columnIndex="1" GridPane.rowIndex="3"
+    />
+
+    <Label text="%nui.lesson.tree.label"
+           GridPane.columnIndex="0" GridPane.rowIndex="4"
+    />
+
+    <Label fx:id="lbLessons"
+           GridPane.columnIndex="1" GridPane.rowIndex="4"
+    />
+
+    <FlowPane
+        GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="2"
+        alignment="BASELINE_RIGHT"
+    >
+        <HBox spacing="3">
+            <padding>
+                <Insets top="3" right="6" bottom="3" left="3"/>
+            </padding>
+            <Button text="%nui.ok"
+                    onAction="#onOk"
+            />
+            <Button text="%nui.cancel"
+                    onAction="#onCancel"
+            />
+        </HBox>
+    </FlowPane>
+</GridPane>

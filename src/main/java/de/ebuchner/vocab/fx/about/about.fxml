@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+fx:controller="de.ebuchner.vocab.fx.about.AboutWindow"
+-->
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane
+    xmlns:fx="http://javafx.com/fxml"
+    >
+    <left>
+        <HBox>
+            <padding>
+                <Insets top="5" right="5" bottom="5" left="5"/>
+            </padding>
+            <Label fx:id="lbAppIcon"/>
+        </HBox>
+    </left>
+    <center>
+        <GridPane
+            alignment="center" hgap="3" vgap="3"
+            >
+            <padding>
+                <Insets top="5" right="5" bottom="5" left="5"/>
+            </padding>
+
+            <!-- Version -->
+            <Label text="%nui.about.version"
+                   GridPane.columnIndex="0" GridPane.rowIndex="0"
+                />
+            <Label fx:id="lbAppVersion"
+                   GridPane.columnIndex="1" GridPane.rowIndex="0"
+                />
+
+            <!-- Runtime -->
+            <Label text="%nui.about.java"
+                   GridPane.columnIndex="0" GridPane.rowIndex="1"
+                />
+            <Label fx:id="lbAppRuntime"
+                   GridPane.columnIndex="1" GridPane.rowIndex="1"
+                />
+
+            <!-- UI -->
+            <Label text="%nui.about.javafx"
+                   GridPane.columnIndex="0" GridPane.rowIndex="2"
+                />
+            <Label fx:id="lbAppUI"
+                   GridPane.columnIndex="1" GridPane.rowIndex="2"
+                />
+
+            <!-- OS -->
+            <Label text="%nui.about.os"
+                   GridPane.columnIndex="0" GridPane.rowIndex="3"
+                />
+            <Label fx:id="lbAppOS"
+                   GridPane.columnIndex="1" GridPane.rowIndex="3"
+                />
+
+            <!-- SF link -->
+            <Label text="%nui.about.website"
+                   GridPane.columnIndex="0" GridPane.rowIndex="4"
+                />
+            <Hyperlink fx:id="hlAppWebsite"
+                       GridPane.columnIndex="1" GridPane.rowIndex="4"
+                       onAction="#onAppWebSite"
+                />
+
+            <!-- Update Check -->
+            <Button fx:id="btnUpdateCheck"
+                    GridPane.columnIndex="0" GridPane.rowIndex="5"
+                    text="%nui.about.up.to.date.check"
+                    onAction="#onUpdateCheck"
+                />
+            <Label fx:id="lbUpdateCheck"
+                   GridPane.columnIndex="1" GridPane.rowIndex="5"
+                   text="%nui.about.up.to.date.check.unknown"
+                />
+
+            <HBox GridPane.columnSpan="2"
+                  GridPane.columnIndex="0" GridPane.rowIndex="6"
+                  alignment="BASELINE_RIGHT"
+                  spacing="3">
+                <Button fx:id="btnExitAndUpdate"
+                        disable="true"
+                        visible="false"
+                        onAction="#onExitAndUpdate"
+                    />
+                <Button text="%nui.close"
+                        onAction="#onClose"
+                    />
+            </HBox>
+
+        </GridPane>
+    </center>
+    <top>
+    </top>
+</BorderPane>

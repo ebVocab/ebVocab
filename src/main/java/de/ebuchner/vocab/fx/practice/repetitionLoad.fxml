@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    fx:controller="de.ebuchner.vocab.fx.practice.RepetitionLoadWindow"
+-->
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<GridPane
+    xmlns:fx="http://javafx.com/fxml"
+    alignment="center" hgap="3" vgap="3"
+    >
+    <padding>
+        <Insets top="3" right="3" bottom="3" left="3"/>
+    </padding>
+
+    <Label
+        GridPane.columnIndex="0" GridPane.rowIndex="0"
+        text="%nui.repetition.load.list.label"
+        />
+    <ListView
+        GridPane.columnIndex="0" GridPane.rowIndex="1"
+        prefWidth="600"
+        fx:id="lvRepetitions"
+        onMouseClicked="#onSelectionChanged"
+        />
+
+    <FlowPane
+        GridPane.columnIndex="0" GridPane.rowIndex="2"
+        hgap="3" vgap="3"
+        alignment="BASELINE_RIGHT"
+        >
+        <Button
+            fx:id="btnOk"
+            text="%nui.ok"
+            onAction="#onOk"
+            />
+
+        <Button
+            fx:id="btnDeleteSelected"
+            text="%nui.repetition.load.delete.selected"
+            onAction="#onDeleteSelected"
+            />
+        <Button
+            text="%nui.cancel"
+            onAction="#onCancel"
+            />
+    </FlowPane>
+</GridPane>

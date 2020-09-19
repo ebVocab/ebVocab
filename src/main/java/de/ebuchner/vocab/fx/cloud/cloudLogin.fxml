@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    fx:controller="de.ebuchner.vocab.fx.cloud.CloudLoginWindow"
+-->
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<GridPane
+    xmlns:fx="http://javafx.com/fxml"
+    alignment="center" hgap="3" vgap="3"
+    >
+    <padding>
+        <Insets top="3" right="3" bottom="3" left="3"/>
+    </padding>
+
+    <Label
+        text="%nui.cloud.server"
+        GridPane.columnIndex="0" GridPane.rowIndex="0"
+        />
+
+    <TextField
+        fx:id="tfServer"
+        prefColumnCount="20"
+        GridPane.columnIndex="1" GridPane.rowIndex="0"
+        />
+
+    <Label text="%nui.cloud.user"
+           GridPane.columnIndex="0" GridPane.rowIndex="1"
+        />
+
+    <TextField
+        fx:id="tfUser"
+        prefColumnCount="20"
+        GridPane.columnIndex="1" GridPane.rowIndex="1"
+        />
+
+    <Label text="%nui.cloud.secret"
+           GridPane.columnIndex="0" GridPane.rowIndex="2"
+        />
+
+    <PasswordField
+        fx:id="tfSecret"
+        prefColumnCount="20"
+        GridPane.columnIndex="1" GridPane.rowIndex="2"
+        />
+
+    <FlowPane
+        alignment="BASELINE_RIGHT"
+        hgap="3" vgap="3"
+        GridPane.columnIndex="1" GridPane.rowIndex="3"
+        >
+        <Button fx:id="btnCloudConnect"
+                text="%nui.cloud.connect"
+                onAction="#onCloudConnect"
+            />
+        <Button fx:id="btnCancel"
+                text="%nui.cancel"
+                onAction="#onCancel"
+            />
+    </FlowPane>
+
+
+</GridPane>
