@@ -27,3 +27,13 @@ dependencies {
     testCompile 'junit:junit:4.12'
     testCompile 'jdepend:jdepend:2.9.1'
 }
+
+// Building a fat jar
+jar {
+    manifest {
+        attributes 'Main-Class': 'de.ebuchner.vocab.VocabApplication'
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } } {
+        exclude 'META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA'
+    }
+}
